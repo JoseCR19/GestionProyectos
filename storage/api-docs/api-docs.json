@@ -1,0 +1,4772 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Gestion Proyectos",
+        "contact": {
+            "email": "andy.ancajima@mimco.com.pe"
+        },
+        "version": "1"
+    },
+    "paths": {
+        "/GestionProgramas/public/index.php/regi_usua": {
+            "post": {
+                "tags": [
+                    "Gestion Agrupador"
+                ],
+                "summary": "permite el registro de un agrupador",
+                "operationId": "App\\Http\\Controllers\\AgrupadorController::regi_agru",
+                "parameters": [
+                    {
+                        "name": "varCodiAgru",
+                        "in": "path",
+                        "description": "Codigo para el agrupador",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "DESPPRUEBA"
+                    },
+                    {
+                        "name": "varDescAgru",
+                        "in": "path",
+                        "description": "Descripcion de agrupador",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "GALVANIZADO EPOXICO"
+                    },
+                    {
+                        "name": "acti_usua",
+                        "in": "path",
+                        "description": "usuario quien registra",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "usuario"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "varCodiAgru": {
+                                        "type": "string"
+                                    },
+                                    "varDescAgru": {
+                                        "type": "string"
+                                    },
+                                    "codi_usua": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "varCodiAgru": "KIRLM",
+                                    "varEstaUsua": "ACT",
+                                    "codi_usua": "usuario"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Registro Satisfactorio"
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    },
+                    "408": {
+                        "description": "Codigo de agrupador ya se encuentra registrado."
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/list_agru": {
+            "get": {
+                "tags": [
+                    "Gestion Agrupador"
+                ],
+                "summary": "lista todos los agrupadores",
+                "operationId": "App\\Http\\Controllers\\AgrupadorController::list_agru",
+                "responses": {
+                    "200": {
+                        "description": "Lista los agrupadores."
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/vali_agru": {
+            "post": {
+                "tags": [
+                    "Gestion Agrupador"
+                ],
+                "summary": "obtiene datos del agrupador con su numero de id Agrupado",
+                "operationId": "App\\Http\\Controllers\\AgrupadorController::vali_agru",
+                "parameters": [
+                    {
+                        "name": "intIdAgru",
+                        "in": "path",
+                        "description": "documento de identidad",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdAgru": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdAgru": "5"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Sin Mensaje"
+                    },
+                    "407": {
+                        "description": "El Documento de identidad ingresado no se encuentra registrado."
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/actu_agru": {
+            "post": {
+                "tags": [
+                    "Gestion Agrupador"
+                ],
+                "summary": "Permite actualizar el agrupador",
+                "operationId": "App\\Http\\Controllers\\AgrupadorController::actu_agru",
+                "parameters": [
+                    {
+                        "name": "varCodiAgru",
+                        "in": "path",
+                        "description": "Codigo para el agrupador",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "KIRLMPRUEBA"
+                    },
+                    {
+                        "name": "varDescAgru",
+                        "in": "path",
+                        "description": "Descripcion de agrupador",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Habilitado"
+                    },
+                    {
+                        "name": "codi_usua",
+                        "in": "path",
+                        "description": "usuario quien registra",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "usuario"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "varCodiAgru": {
+                                        "type": "string"
+                                    },
+                                    "varDescAgru": {
+                                        "type": "string"
+                                    },
+                                    "codi_usua": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "varCodiAgru": "KIRLMPRUEBA",
+                                    "varDescAgru": "Habilitado",
+                                    "codi_usua": "usuario"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Actualizacion Satisfactorio"
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    },
+                    "408": {
+                        "description": "Codigo de agrupador ya se encuentra registrado."
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/list_etap_acue_agru": {
+            "post": {
+                "tags": [
+                    "Gestion Agrupador"
+                ],
+                "summary": "Listar Etapa de acuerdo al agrupador",
+                "operationId": "App\\Http\\Controllers\\AgrupadorController::list_etap_acue_agru",
+                "parameters": [
+                    {
+                        "name": "intIdAgru",
+                        "in": "path",
+                        "description": "documento de identidad",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdAgru": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdAgru": "1"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "muestra una lista deacuerdo a la etapa"
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/list_arma": {
+            "get": {
+                "tags": [
+                    "Gestion Armadores"
+                ],
+                "summary": "lista todo los armadores",
+                "operationId": "App\\Http\\Controllers\\ArmadoresController::list_arma",
+                "responses": {
+                    "200": {
+                        "description": "Lista los armadores."
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/regi_arma": {
+            "post": {
+                "tags": [
+                    "Gestion Armadores"
+                ],
+                "summary": "permite registrar un nuevo armador",
+                "operationId": "App\\Http\\Controllers\\ArmadoresController::regi_arma",
+                "parameters": [
+                    {
+                        "name": "varNombArma",
+                        "in": "path",
+                        "description": "Nombre del nuevo armador",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "CONFIGURATION"
+                    },
+                    {
+                        "name": "varApelArma",
+                        "in": "path",
+                        "description": "Apellido del nuevo armador",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "CONFIGU_R"
+                    },
+                    {
+                        "name": "intIdEtapa",
+                        "in": "path",
+                        "description": "Ingresamos el idEtapa",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "91"
+                    },
+                    {
+                        "name": "intIdCont",
+                        "in": "path",
+                        "description": "Ingresamos el idContratista",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "200"
+                    },
+                    {
+                        "name": "varEstaArma",
+                        "in": "path",
+                        "description": "Ingresamos el estado del armador",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "ACTIVO"
+                    },
+                    {
+                        "name": "acti_usua",
+                        "in": "path",
+                        "description": "El usuario que va registrar el nuevo armador",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "asuario"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "varNombArma": {
+                                        "type": "string"
+                                    },
+                                    "varApelArma": {
+                                        "type": "string"
+                                    },
+                                    "intIdEtapa": {
+                                        "type": "string"
+                                    },
+                                    "intIdCont": {
+                                        "type": "string"
+                                    },
+                                    "varEstaArma": {
+                                        "type": "string"
+                                    },
+                                    "acti_usua": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "varNombArma": "CONFIGURATION",
+                                    "varApelArma": "CONFIGU_R",
+                                    "intIdEtapa": "91",
+                                    "intIdCont": "200",
+                                    "varEstaArma": "ACTIVO",
+                                    "acti_usua": "usuario"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Registro Satisfactorio"
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/vali_arma": {
+            "post": {
+                "tags": [
+                    "Gestion Armadores"
+                ],
+                "summary": "obtiene datos del armador que se desea seleccionar",
+                "operationId": "App\\Http\\Controllers\\ArmadoresController::vali_arma",
+                "parameters": [
+                    {
+                        "name": "intIdArmadores",
+                        "in": "path",
+                        "description": "Obtenemos informacion del armador que se ha elegido.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdArmadores": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdArmadores": "263"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Sin Mensaje"
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/actu_arma": {
+            "post": {
+                "tags": [
+                    "Gestion Armadores"
+                ],
+                "summary": "permite actualizar un armador",
+                "operationId": "App\\Http\\Controllers\\ArmadoresController::actu_arma",
+                "parameters": [
+                    {
+                        "name": "intIdArmadores",
+                        "in": "path",
+                        "description": "Ingrese el idArmadores que se va actualizar",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "CONFIGURATION"
+                    },
+                    {
+                        "name": "varNombArma",
+                        "in": "path",
+                        "description": "Nombre del  armador",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "CONFIGURATION"
+                    },
+                    {
+                        "name": "varApelArma",
+                        "in": "path",
+                        "description": "Apellido del  armador",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "CONFIGU_R"
+                    },
+                    {
+                        "name": "intIdEtapa",
+                        "in": "path",
+                        "description": "Ingresamos el idEtapa",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "91"
+                    },
+                    {
+                        "name": "intIdCont",
+                        "in": "path",
+                        "description": "Ingresamos el idContratista",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "200"
+                    },
+                    {
+                        "name": "varEstaArma",
+                        "in": "path",
+                        "description": "Ingresamos el estado del armador",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "ACTIVO"
+                    },
+                    {
+                        "name": "usua_modi",
+                        "in": "path",
+                        "description": "El usuario que va registrar el nuevo armador",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "usua_modi"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdArmadores": {
+                                        "type": "string"
+                                    },
+                                    "varNombArma": {
+                                        "type": "string"
+                                    },
+                                    "varApelArma": {
+                                        "type": "string"
+                                    },
+                                    "intIdEtapa": {
+                                        "type": "string"
+                                    },
+                                    "intIdCont": {
+                                        "type": "string"
+                                    },
+                                    "varEstaArma": {
+                                        "type": "string"
+                                    },
+                                    "usua_modi": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdArmadores": "48",
+                                    "varNombArma": "CONFIGUR_ACTU",
+                                    "varApelArma": "CONFIGU_ACTU",
+                                    "intIdEtapa": "91",
+                                    "intIdCont": "150",
+                                    "varEstaArma": "INACTIVO",
+                                    "usua_modi": "usuario"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Registro Satisfactorio"
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/elim_arma": {
+            "post": {
+                "tags": [
+                    "Gestion Armadores"
+                ],
+                "summary": "inactiva un armador",
+                "operationId": "App\\Http\\Controllers\\ArmadoresController::elim_arma",
+                "parameters": [
+                    {
+                        "name": "intIdArmadores",
+                        "in": "path",
+                        "description": "Numero de dni del usuario",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "codi_usua",
+                        "in": "path",
+                        "description": "codigo de usuario que se usa para ingresar al sistema",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdArmadores": {
+                                        "type": "string"
+                                    },
+                                    "codi_usua": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdArmadores": "91",
+                                    "codi_usua": "usuario"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "El usuario ha sido eliminado."
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/list_chof": {
+            "get": {
+                "tags": [
+                    "Gestion Chofer"
+                ],
+                "summary": "Listar Chofer",
+                "operationId": "App\\Http\\Controllers\\ChoferController::list_chof",
+                "responses": {
+                    "200": {
+                        "description": "Listar Chofer"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/regi_chof": {
+            "post": {
+                "tags": [
+                    "Gestion Chofer"
+                ],
+                "summary": "Se registra a un chofer",
+                "operationId": "App\\Http\\Controllers\\ChoferController::regi_chof",
+                "parameters": [
+                    {
+                        "name": "varNumeIden",
+                        "in": "path",
+                        "description": "Ingrese el numero de identidad",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "73458127"
+                    },
+                    {
+                        "name": "varNombChofer",
+                        "in": "path",
+                        "description": "Nombres completos del chofer",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Enrique Lozano"
+                    },
+                    {
+                        "name": "varNumeLicen",
+                        "in": "path",
+                        "description": "Ingrese el numero licencia del conductor",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": 123
+                    },
+                    {
+                        "name": "intIdEsta",
+                        "in": "path",
+                        "description": "Ingrese el Estado de chofer",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "3"
+                    },
+                    {
+                        "name": "acti_usua",
+                        "in": "path",
+                        "description": "Ingresar el usuario que ha registrado al chofer",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "jose_castillo"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "varNumeDni": {
+                                        "type": "string"
+                                    },
+                                    "varNombChofer": {
+                                        "type": "string"
+                                    },
+                                    "varNumeLicen": {
+                                        "type": "string"
+                                    },
+                                    "intIdEsta": {
+                                        "type": "integer"
+                                    },
+                                    "acti_usua": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "varNumeIden": "73458127",
+                                    "varNombChofer": "Enrique Lozano",
+                                    "varNumeLicen": "X125412471",
+                                    "intIdEsta": "3",
+                                    "acti_usua": "jose_castillo"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Registro Satisfactorio."
+                    },
+                    "407": {
+                        "description": "El numero de licencia ya existe."
+                    },
+                    "408": {
+                        "description": "El numero de DNI ya se encuentra registrado."
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/vali_chof": {
+            "post": {
+                "tags": [
+                    "Gestion Chofer"
+                ],
+                "summary": "buscamos la informacion del chofer mediante el ID",
+                "operationId": "App\\Http\\Controllers\\ChoferController::vali_chof",
+                "parameters": [
+                    {
+                        "name": "intIdChofer",
+                        "in": "path",
+                        "description": "Ingresar el id del chofer",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "6"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdChofer": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdChofer": "6"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Sin Mensaje"
+                    },
+                    "407": {
+                        "description": "El id del chofer  ingresado no se encuentra registrado."
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/actu_chofe": {
+            "post": {
+                "tags": [
+                    "Gestion Chofer"
+                ],
+                "summary": "Permite Actualizar los datos del chofer",
+                "operationId": "App\\Http\\Controllers\\ChoferController::actu_chof",
+                "parameters": [
+                    {
+                        "name": "intIdChofer",
+                        "in": "path",
+                        "description": "Ingrese el id del chofer",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "6"
+                    },
+                    {
+                        "name": "varNombChofer",
+                        "in": "path",
+                        "description": "Ingresar el nombre completo del chofer",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Juan Vargas Mendoza"
+                    },
+                    {
+                        "name": "intIdEsta",
+                        "in": "path",
+                        "description": "Ingresar el estado de chofer(3='ACTIVO' o 14='INACTIVO')",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14"
+                    },
+                    {
+                        "name": "usua_modi",
+                        "in": "path",
+                        "description": "EL nombre del usuario que ha realizado la modificacion del chofer",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "andy_ancajima"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdChofer": {
+                                        "type": "integer"
+                                    },
+                                    "varNombChofer": {
+                                        "type": "string"
+                                    },
+                                    "intIdEsta": {
+                                        "type": "integer"
+                                    },
+                                    "usua_modi": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdChofer": "6",
+                                    "varNombChofer": "Juan Vargas Mendoza",
+                                    "intIdEsta": "14",
+                                    "usua_modi": "andy_ancajima"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Actualizacion Satisfactoria."
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/elim_chof": {
+            "post": {
+                "tags": [
+                    "Gestion Chofer"
+                ],
+                "summary": "Cambiar el estado de un chofer",
+                "operationId": "App\\Http\\Controllers\\ChoferController::elim_chof",
+                "parameters": [
+                    {
+                        "name": "intIdChofer",
+                        "in": "path",
+                        "description": "Ingresar el id del chofer",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "2"
+                    },
+                    {
+                        "name": "usua_modi",
+                        "in": "path",
+                        "description": "Ingresa el usuario que ha modificado a un transportista",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "andy_ancajima"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdChofer": {
+                                        "type": "string"
+                                    },
+                                    "usua_modi": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdChofer": "2",
+                                    "usua_modi": "andy_ancajima"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Se ha eliminado."
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/asig_cola_aun_agru": {
+            "post": {
+                "tags": [
+                    "Gestion Colaborador"
+                ],
+                "summary": "obtiene datos del usuario a través del dni",
+                "operationId": "App\\Http\\Controllers\\ColaboradorController::asig_cola_aun_agru",
+                "parameters": [
+                    {
+                        "name": "intIdAgru",
+                        "in": "path",
+                        "description": "ingresamos el idAgrupador",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "intIdColaborador",
+                        "in": "path",
+                        "description": "ingresamos el idColaborador",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "acti_usua",
+                        "in": "path",
+                        "description": "registrar la usuario que esta asignando un colaborador a un grupo",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "varNumeDni": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "varNumeDni": "25214121"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Registrado satisfactorio."
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/elim_cola_agru": {
+            "post": {
+                "tags": [
+                    "Gestion Colaborador"
+                ],
+                "summary": "cambio el estado",
+                "operationId": "App\\Http\\Controllers\\ColaboradorController::elim_cola_agru",
+                "parameters": [
+                    {
+                        "name": "intIdAgru",
+                        "in": "path",
+                        "description": "Id Agrupador seleccionara",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "intIdColaborador",
+                        "in": "path",
+                        "description": "idColaborador que se usa para ingresar al sistema",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "usua_modi",
+                        "in": "path",
+                        "description": "codigo de usuario que se usa para ingresar al sistema",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdColaborador": {
+                                        "type": "string"
+                                    },
+                                    "usua_modi": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdAgru": "5",
+                                    "intIdColaborador": "10",
+                                    "usua_modi": "usuarios"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "El usuario ha sido eliminado."
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/list_cola_segun_id_agru": {
+            "post": {
+                "tags": [
+                    "Gestion Colaborador"
+                ],
+                "summary": "listar colaboradores segun el IdAgrupador",
+                "operationId": "App\\Http\\Controllers\\ColaboradorController::list_cola_segun_id_agru",
+                "parameters": [
+                    {
+                        "name": "intIdAgru",
+                        "in": "path",
+                        "description": "Ingresamos el idAgrupador",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdAgru": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdAgru": "5"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Lista los Colaboradores para ese IdAgrupador"
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/list_cola": {
+            "get": {
+                "tags": [
+                    "Gestion Colaborador"
+                ],
+                "summary": "lista los colaboradores",
+                "operationId": "App\\Http\\Controllers\\ColaboradorController::list_cola",
+                "responses": {
+                    "200": {
+                        "description": "Lista los colaboradores."
+                    }
+                }
+            }
+        },
+        "/GestionUsuarios/public/index.php/asig_cont_aun_agru": {
+            "post": {
+                "tags": [
+                    "Gestion Contratista"
+                ],
+                "summary": "Asignar un contratista aun agrupador",
+                "operationId": "App\\Http\\Controllers\\ContratistaController::asig_cont_aun_agru",
+                "parameters": [
+                    {
+                        "name": "intIdCont",
+                        "in": "path",
+                        "description": "Ingresamos el idContratista",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "intIdAgru",
+                        "in": "path",
+                        "description": "Ingresamos el idAgrupador",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "acti_usua",
+                        "in": "path",
+                        "description": "Se registra el usuario que va realizar el asignado",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdCont": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdCont": "2",
+                                    "intIdAgru": "2",
+                                    "acti_usua": "usuario"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Registro Satisfactorio."
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/elim_cont_agru": {
+            "post": {
+                "tags": [
+                    "Gestion Contratista"
+                ],
+                "summary": "Eliminar a un contratista en un Agrupador",
+                "operationId": "App\\Http\\Controllers\\ContratistaController::elim_cont_agru",
+                "parameters": [
+                    {
+                        "name": "intIdAgru",
+                        "in": "path",
+                        "description": "Ingresamos el IdAgrupador",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "intIdCont",
+                        "in": "path",
+                        "description": "Ingresamos el idContratista",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdAgru": {
+                                        "type": "string"
+                                    },
+                                    "intIdCont": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdCont": "2",
+                                    "intIdAgru": "2"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Se ha Eliminado."
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/list_cont_segun_agru": {
+            "post": {
+                "tags": [
+                    "Gestion Contratista"
+                ],
+                "summary": "Listar los contratistas segun Idagrupador",
+                "operationId": "App\\Http\\Controllers\\ContratistaController::list_cont_segun_agru",
+                "parameters": [
+                    {
+                        "name": "intIdAgru",
+                        "in": "path",
+                        "description": "Ingresamos el IdAgrupador",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdAgru": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdAgru": "2"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Se ha Eliminado."
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/list_cont_segun_tipo_etapa": {
+            "post": {
+                "tags": [
+                    "Gestion Contratista"
+                ],
+                "summary": "Listar los contratistas segun del contratrista",
+                "operationId": "App\\Http\\Controllers\\ContratistaController::list_cont_segun_tipo_etapa",
+                "parameters": [
+                    {
+                        "name": "intIdTipoEtap",
+                        "in": "path",
+                        "description": "Ingresamos el id del tipo etapa",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "7"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdTipoEtap": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdTipoEtap": "7"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Muestra al contratista segundo la etapa o si coloca -1 envia todo los contratista"
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/list_tipo_prod": {
+            "get": {
+                "tags": [
+                    "Gestion etapa"
+                ],
+                "summary": "Listar todos los tipo productos",
+                "operationId": "App\\Http\\Controllers\\EtapaController::list_tipo_prod",
+                "responses": {
+                    "200": {
+                        "description": "Listar todos los tipo productos"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/list_unid_medi": {
+            "get": {
+                "tags": [
+                    "Gestion etapa"
+                ],
+                "summary": "Listar todos las unidad de medida",
+                "operationId": "App\\Http\\Controllers\\EtapaController::list_unid_medi",
+                "responses": {
+                    "200": {
+                        "description": "Listar todos las unidad de medida"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/list_proc": {
+            "get": {
+                "tags": [
+                    "Gestion etapa"
+                ],
+                "summary": "Listar todos los procesos",
+                "operationId": "App\\Http\\Controllers\\EtapaController::list_proc",
+                "responses": {
+                    "200": {
+                        "description": "Listar todos los procesos"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/list_plan": {
+            "get": {
+                "tags": [
+                    "Gestion etapa"
+                ],
+                "summary": "Listar planta",
+                "operationId": "App\\Http\\Controllers\\EtapaController::list_plan",
+                "responses": {
+                    "200": {
+                        "description": "Listar  planta"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/list_t_etap": {
+            "get": {
+                "tags": [
+                    "Gestion etapa"
+                ],
+                "summary": "lista el tipo de etapa que su estado sea 'ACT'",
+                "operationId": "App\\Http\\Controllers\\EtapaController::list_t_etap",
+                "responses": {
+                    "200": {
+                        "description": "lista el tipo de etapa que su estado sea 'ACT'"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/regi_etap": {
+            "post": {
+                "tags": [
+                    "Gestion etapa"
+                ],
+                "summary": "permite registro de la etapa",
+                "operationId": "App\\Http\\Controllers\\EtapaController::regi_etap",
+                "parameters": [
+                    {
+                        "name": "varDescEtap",
+                        "in": "path",
+                        "description": "Ingresamos la descripcion para la etapa que se va registrar",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "PRUEBA_DESPACHO"
+                    },
+                    {
+                        "name": "intIdTipoEtap",
+                        "in": "path",
+                        "description": "Ingresamos el idtipoetapa",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "9"
+                    },
+                    {
+                        "name": "varValoEtapa",
+                        "in": "path",
+                        "description": "Asignamos si el valor es si o no",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "SI"
+                    },
+                    {
+                        "name": "intIdProc",
+                        "in": "path",
+                        "description": "Ingresamos el idProcesos para este nueva etapa",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "7"
+                    },
+                    {
+                        "name": "intIdTipoProducto",
+                        "in": "path",
+                        "description": "Ingresamos el idTipoproducto para la etapa.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "intIdUniMedi",
+                        "in": "path",
+                        "description": "Ingresamos el Id de la unidad de media",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "15"
+                    },
+                    {
+                        "name": "intIdPlan",
+                        "in": "path",
+                        "description": "Ingresamos el idPlanta",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "2"
+                    },
+                    {
+                        "name": "boolDesp",
+                        "in": "path",
+                        "description": "Ingresamos el  boolDesp",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "0"
+                    },
+                    {
+                        "name": "boolMostMaqu",
+                        "in": "path",
+                        "description": "se colocara 1 o 0 dependiendo a la epata que se registrar",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "0"
+                    },
+                    {
+                        "name": "boolMostSupe",
+                        "in": "path",
+                        "description": "se colocara 1 o 0 dependiendo a la epata que se registrar",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "boolMostCont",
+                        "in": "path",
+                        "description": "se colocara 1 o 0 dependiendo a la epata que se registrar",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "0"
+                    },
+                    {
+                        "name": "acti_usua",
+                        "in": "path",
+                        "description": "se registrar el usuario que ha creado la estapa",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "montañez"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "varDescEtap": {
+                                        "type": "string"
+                                    },
+                                    "intIdTipoEtap": {
+                                        "type": "string"
+                                    },
+                                    "varValoEtapa": {
+                                        "type": "string"
+                                    },
+                                    "intIdProc": {
+                                        "type": "string"
+                                    },
+                                    "intIdTipoProducto": {
+                                        "type": "string"
+                                    },
+                                    "intIdUniMedi": {
+                                        "type": "string"
+                                    },
+                                    "intIdPlan": {
+                                        "type": "string"
+                                    },
+                                    "boolDesp": {
+                                        "type": "string"
+                                    },
+                                    "boolMostMaqu": {
+                                        "type": "string"
+                                    },
+                                    "boolMostSupe": {
+                                        "type": "string"
+                                    },
+                                    "boolMostCont": {
+                                        "type": "string"
+                                    },
+                                    "acti_usua": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "varDescEtap": "PRUEBA_DESPACHO",
+                                    "intIdTipoEtap": "9",
+                                    "varValoEtapa": "SI",
+                                    "intIdProc": "7",
+                                    "intIdTipoProducto": "1",
+                                    "intIdUniMedi": "15",
+                                    "intIdPlan": "2",
+                                    "boolDesp": "0",
+                                    "boolMostMaqu": "0",
+                                    "boolMostSupe": "1",
+                                    "boolMostCont": "0",
+                                    "acti_usua": "usuario"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Guardado con exito."
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    },
+                    "408": {
+                        "description": "Código de Etapa Ya existe."
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/vali_etap": {
+            "post": {
+                "tags": [
+                    "Gestion etapa"
+                ],
+                "summary": "obtiene datos estapa por el idetapa",
+                "operationId": "App\\Http\\Controllers\\EtapaController::vali_etap",
+                "parameters": [
+                    {
+                        "name": "intIdEtapa",
+                        "in": "path",
+                        "description": "Seleccionamos el idetapa que vamos obtener la informacion",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdEtapa": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdEtapa": "5"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Sin Mensaje"
+                    },
+                    "407": {
+                        "description": "El Documento de identidad ingresado no se encuentra registrado."
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/actu_etap": {
+            "post": {
+                "tags": [
+                    "Gestion etapa"
+                ],
+                "summary": "permite actualizar una etapa seleccionada",
+                "operationId": "App\\Http\\Controllers\\EtapaController::actu_etap",
+                "parameters": [
+                    {
+                        "name": "intIdEtapa",
+                        "in": "path",
+                        "description": "Ingresar el intIdEtapa",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1000"
+                    },
+                    {
+                        "name": "varDescEtap",
+                        "in": "path",
+                        "description": "Ingresamos la descripcion para la etapa que se va registrar",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "PRUEBA_DESPACHO_prueba"
+                    },
+                    {
+                        "name": "intIdTipoEtap",
+                        "in": "path",
+                        "description": "Ingresamos el idtipoetapa",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "9"
+                    },
+                    {
+                        "name": "varValoEtapa",
+                        "in": "path",
+                        "description": "Asignamos si el valor es si o no",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "SI"
+                    },
+                    {
+                        "name": "intIdProc",
+                        "in": "path",
+                        "description": "Ingresamos el idProcesos para este nueva etapa",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "7"
+                    },
+                    {
+                        "name": "intIdTipoProducto",
+                        "in": "path",
+                        "description": "Ingresamos el idTipoproducto para la etapa.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "intIdUniMedi",
+                        "in": "path",
+                        "description": "Ingresamos el Id de la unidad de media",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "15"
+                    },
+                    {
+                        "name": "intIdPlan",
+                        "in": "path",
+                        "description": "Ingresamos el idPlanta",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "2"
+                    },
+                    {
+                        "name": "boolDesp",
+                        "in": "path",
+                        "description": "Ingresamos el  boolDesp",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "0"
+                    },
+                    {
+                        "name": "boolMostMaqu",
+                        "in": "path",
+                        "description": "se colocara 1 o 0 dependiendo a la epata que se registrar",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "0"
+                    },
+                    {
+                        "name": "boolMostSupe",
+                        "in": "path",
+                        "description": "se colocara 1 o 0 dependiendo a la epata que se registrar",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "boolMostCont",
+                        "in": "path",
+                        "description": "se colocara 1 o 0 dependiendo a la epata que se registrar",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "0"
+                    },
+                    {
+                        "name": "acti_usua",
+                        "in": "path",
+                        "description": "se registrar el usuario que ha creado la estapa",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "montañez"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "varDescEtap": {
+                                        "type": "string"
+                                    },
+                                    "intIdTipoEtap": {
+                                        "type": "string"
+                                    },
+                                    "varValoEtapa": {
+                                        "type": "string"
+                                    },
+                                    "intIdProc": {
+                                        "type": "string"
+                                    },
+                                    "intIdTipoProducto": {
+                                        "type": "string"
+                                    },
+                                    "intIdUniMedi": {
+                                        "type": "string"
+                                    },
+                                    "intIdPlan": {
+                                        "type": "string"
+                                    },
+                                    "boolDesp": {
+                                        "type": "string"
+                                    },
+                                    "boolMostMaqu": {
+                                        "type": "string"
+                                    },
+                                    "boolMostSupe": {
+                                        "type": "string"
+                                    },
+                                    "boolMostCont": {
+                                        "type": "string"
+                                    },
+                                    "acti_usua": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "varDescEtap": "PRUEBA_DESPACHO",
+                                    "intIdTipoEtap": "9",
+                                    "varValoEtapa": "SI",
+                                    "intIdProc": "7",
+                                    "intIdTipoProducto": "1",
+                                    "intIdUniMedi": "15",
+                                    "intIdPlan": "2",
+                                    "boolDesp": "0",
+                                    "boolMostMaqu": "0",
+                                    "boolMostSupe": "1",
+                                    "boolMostCont": "0",
+                                    "acti_usua": "usuario"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Actualizacion exitosa."
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    },
+                    "408": {
+                        "description": "Código de Etapa Ya existe."
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/lis_etap": {
+            "get": {
+                "tags": [
+                    "Gestion etapa"
+                ],
+                "summary": "Listar etapa",
+                "operationId": "App\\Http\\Controllers\\EtapaController::lis_etap",
+                "responses": {
+                    "200": {
+                        "description": "Listar etapa"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/elim_etap": {
+            "post": {
+                "tags": [
+                    "Gestion etapa"
+                ],
+                "summary": "Permite eleminar una etapa",
+                "operationId": "App\\Http\\Controllers\\EtapaController::elim_etap",
+                "parameters": [
+                    {
+                        "name": "intIdEtapa",
+                        "in": "path",
+                        "description": "Selecciona el idEtapa que se eliminara",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "usua_modi",
+                        "in": "path",
+                        "description": "Registrar el usuario quien lo va eliminar",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "varNumeDni": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdEtapa": "1000",
+                                    "usua_modi": "usuario"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Sin Mensaje"
+                    },
+                    "407": {
+                        "description": "El Documento de identidad ingresado no se encuentra registrado."
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/obte_desc_tipo_etapa_acue_etap": {
+            "post": {
+                "tags": [
+                    "Gestion etapa"
+                ],
+                "summary": "Obtener el id y la descripcion del tipoetapa deacuerdo al idEtapa",
+                "operationId": "App\\Http\\Controllers\\EtapaController::obte_desc_tipo_etapa_acue_etap",
+                "parameters": [
+                    {
+                        "name": "intIdEtapa",
+                        "in": "path",
+                        "description": "Selecciona el idEtapa",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdEtapa": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdEtapa": "1"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "muestra la informacion tanto el id y la descripcion de tipo etapa"
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionPartList/public/index.php/list_tipo_etap_proy_tipopro": {
+            "post": {
+                "tags": [
+                    "Gestion etapa"
+                ],
+                "summary": "lista el tipo de etapa por el idproyecto + idtipoproductos",
+                "operationId": "App\\Http\\Controllers\\EtapaController::list_tipo_etap_proy_tipopro",
+                "parameters": [
+                    {
+                        "name": "intIdProy",
+                        "in": "path",
+                        "description": "ingrese el id proyecto",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "intIdTipoProducto",
+                        "in": "path",
+                        "description": "ingrese el id tipo producto",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdProy": {
+                                        "type": "integer"
+                                    },
+                                    "intIdTipoProducto": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdProy": "126",
+                                    "intIdTipoProducto": "1"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "lista el tipo etapa deacuerdo al ot+ tipoproductos"
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/etapa_asig_al_proy": {
+            "post": {
+                "tags": [
+                    "Gestion etapa"
+                ],
+                "summary": "Etapa asignada al proyecto",
+                "operationId": "App\\Http\\Controllers\\EtapaController::etapa_asig_al_proy",
+                "parameters": [
+                    {
+                        "name": "intIdTipoProducto",
+                        "in": "path",
+                        "description": "ingrese el id del tipo producto",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "intIdProy",
+                        "in": "path",
+                        "description": "ingrese el id del tipo producto",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "193"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdTipoProducto": {
+                                        "type": "string"
+                                    },
+                                    "intIdProy": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdTipoProducto": "1",
+                                    "intIdProy": "193"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Listar las etapa"
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/list_proy": {
+            "get": {
+                "tags": [
+                    "Mantenimiento de Proyecto"
+                ],
+                "summary": "realiza un listado de todos los proyectos",
+                "operationId": "App\\Http\\Controllers\\GestionProyectosController::list_proy",
+                "responses": {
+                    "200": {
+                        "description": "realiza un listado de todos los proyectos"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/vali_proy": {
+            "post": {
+                "tags": [
+                    "Mantenimiento de Proyecto"
+                ],
+                "summary": "obtiene datos del proyecto",
+                "operationId": "App\\Http\\Controllers\\GestionProyectosController::vali_proy",
+                "parameters": [
+                    {
+                        "name": "intIdProy",
+                        "in": "path",
+                        "description": "idProyecto que vamos ha seleccionar",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdProy": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdProy": "5"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Sin Mensaje"
+                    },
+                    "407": {
+                        "description": "El IdProyecto ingresado no se encuentra registrado."
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/actu_proy": {
+            "post": {
+                "tags": [
+                    "Mantenimiento de Proyecto"
+                ],
+                "summary": "Actualizar los datos del proyecto,solamente el atributo Alias",
+                "operationId": "App\\Http\\Controllers\\GestionProyectosController::actu_proy",
+                "parameters": [
+                    {
+                        "name": "intIdProy",
+                        "in": "path",
+                        "description": "idProyecto que vamos ha seleccionar",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "varAlias",
+                        "in": "path",
+                        "description": "Ingresar el Alias del proyecto",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "usua_modi",
+                        "in": "path",
+                        "description": "El usuario que va realizar el actualizar tipo estructura",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdProy": {
+                                        "type": "string"
+                                    },
+                                    "varAlias": {
+                                        "type": "string"
+                                    },
+                                    "usua_modi": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdProy": "1000",
+                                    "varAlias": "FERRETEROS",
+                                    "usua_modi": "usuario"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Actualizacion satisfactoria"
+                    },
+                    "407": {
+                        "description": "El IdProyecto ingresado no se encuentra registrado."
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/list_clie": {
+            "get": {
+                "tags": [
+                    "Mantenimiento de Proyecto"
+                ],
+                "summary": "Listar todo los clientes",
+                "operationId": "App\\Http\\Controllers\\GestionProyectosController::list_clie",
+                "responses": {
+                    "200": {
+                        "description": "Listar todo los clientes"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/list_cont": {
+            "get": {
+                "tags": [
+                    "Mantenimiento de Proyecto"
+                ],
+                "summary": "Listar todo los contratista",
+                "operationId": "App\\Http\\Controllers\\GestionProyectosController::list_cont",
+                "responses": {
+                    "200": {
+                        "description": "Listar todo los contratista"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/list_empr": {
+            "get": {
+                "tags": [
+                    "Mantenimiento de Proyecto"
+                ],
+                "summary": "Listar todo las Empresas",
+                "operationId": "App\\Http\\Controllers\\GestionProyectosController::list_empr",
+                "responses": {
+                    "200": {
+                        "description": "Listar todo las Empresa"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/eleg_proc_estado": {
+            "post": {
+                "tags": [
+                    "Mantenimiento de Proyecto"
+                ],
+                "summary": "obtenemos una lista de estado mediante el idProcEst",
+                "operationId": "App\\Http\\Controllers\\GestionProyectosController::eleg_proc_estado",
+                "parameters": [
+                    {
+                        "name": "intIdProcEsta",
+                        "in": "path",
+                        "description": "ingresamos el idProcEstado",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdProcEsta": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdProcEsta": "4"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Sin Mensaje"
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/gsp_proy_nom": {
+            "post": {
+                "tags": [
+                    "Mantenimiento de Proyecto"
+                ],
+                "summary": "Obtener el nombre del programa + la zona",
+                "operationId": "App\\Http\\Controllers\\GestionProyectosController::gsp_proy_nom",
+                "parameters": [
+                    {
+                        "name": "intIdProy",
+                        "in": "path",
+                        "description": "ingresamos id del proyecto",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "126"
+                    },
+                    {
+                        "name": "intIdProyZona",
+                        "in": "path",
+                        "description": "ingresamos el proyecto zona",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdProy": {
+                                        "type": "string"
+                                    },
+                                    "intIdProyZona": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdProy": "126",
+                                    "intIdProyZona": "1"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Obtener los datos mediante los parametros"
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/list_agru_acti": {
+            "get": {
+                "tags": [
+                    "Gestion Maquina"
+                ],
+                "summary": "lista a los agrupadores solo ACTIVOS",
+                "operationId": "App\\Http\\Controllers\\MaquinaController::list_agru_acti",
+                "responses": {
+                    "200": {
+                        "description": "ista a los agrupadores solo ACTIVOS"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/list_maqu_acti": {
+            "get": {
+                "tags": [
+                    "Gestion Maquina"
+                ],
+                "summary": "Listar las maquinas ,en  estado ACTIVA",
+                "operationId": "App\\Http\\Controllers\\MaquinaController::list_maqu_acti",
+                "responses": {
+                    "200": {
+                        "description": "Listar las maquinas ,en  estado ACTIVA"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/list_maqui_todo": {
+            "get": {
+                "tags": [
+                    "Gestion Maquina"
+                ],
+                "summary": "Listar todas las maquinas",
+                "operationId": "App\\Http\\Controllers\\MaquinaController::list_maqui_todo",
+                "responses": {
+                    "200": {
+                        "description": "Listar todas las maquinas"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/regi_maqui": {
+            "post": {
+                "tags": [
+                    "Gestion Maquina"
+                ],
+                "summary": "Permite registrar una nueva maquina",
+                "operationId": "App\\Http\\Controllers\\MaquinaController::regi_maqui",
+                "parameters": [
+                    {
+                        "name": "varDescripcion",
+                        "in": "path",
+                        "description": "Ingrese la descripcion de la maquina",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "CORTADORA"
+                    },
+                    {
+                        "name": "intIdAgru",
+                        "in": "path",
+                        "description": "Ingrese el id del Agrupador",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "5"
+                    },
+                    {
+                        "name": "intIdEsta",
+                        "in": "path",
+                        "description": "Ingrese el id del estado",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "3"
+                    },
+                    {
+                        "name": "acti_usua",
+                        "in": "path",
+                        "description": "Ingresar el codigo del usuario quien lo ha registrado",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "edimir_timana"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "varDescripcion": {
+                                        "type": "string"
+                                    },
+                                    "intIdAgru": {
+                                        "type": "string"
+                                    },
+                                    "intIdEsta": {
+                                        "type": "string"
+                                    },
+                                    "acti_usua": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "varDescripcion": "CORTADORA",
+                                    "intIdAgru": "5",
+                                    "intIdEsta": "a",
+                                    "acti_usua": "edimir_timana"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Registro Satisfactorio."
+                    },
+                    "201": {
+                        "description": "La descripcion ya existe."
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/actu_maqui": {
+            "post": {
+                "tags": [
+                    "Gestion Maquina"
+                ],
+                "summary": "Permite Actualizar los datos de una maquina",
+                "operationId": "App\\Http\\Controllers\\MaquinaController::actu_maqui",
+                "parameters": [
+                    {
+                        "name": "intIdMaquinas",
+                        "in": "path",
+                        "description": "Ingrese el id de la maquina",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "7"
+                    },
+                    {
+                        "name": "varDescripcion",
+                        "in": "path",
+                        "description": "Ingrese la descripcion de la maquina",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "PUENTE_PRUEBA"
+                    },
+                    {
+                        "name": "intIdAgru",
+                        "in": "path",
+                        "description": "Ingrese el id del Agrupador",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "6"
+                    },
+                    {
+                        "name": "intIdEsta",
+                        "in": "path",
+                        "description": "Ingrese el id del estado",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14"
+                    },
+                    {
+                        "name": "usua_modi",
+                        "in": "path",
+                        "description": "Ingresar el codigo del usuario quien va actualizar",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "edimir_timana"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "varDescripcion": {
+                                        "type": "string"
+                                    },
+                                    "intIdAgru": {
+                                        "type": "string"
+                                    },
+                                    "intIdEsta": {
+                                        "type": "string"
+                                    },
+                                    "usua_modi": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdMaquinas": "7",
+                                    "varDescripcion": "PUENTE_PRUEBA",
+                                    "intIdAgru": "6",
+                                    "intIdEsta": "14",
+                                    "usua_modi": "edimir_timana"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Actualizacion Satisfactorio."
+                    },
+                    "201": {
+                        "description": "La descripcion ya existe."
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/elim_maqui": {
+            "post": {
+                "tags": [
+                    "Gestion Maquina"
+                ],
+                "summary": "Eliminar maquina",
+                "operationId": "App\\Http\\Controllers\\MaquinaController::elim_maqui",
+                "parameters": [
+                    {
+                        "name": "intIdMaquinas",
+                        "in": "path",
+                        "description": "Ingresar id de la maquina",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "8"
+                    },
+                    {
+                        "name": "usua_modi",
+                        "in": "path",
+                        "description": "Ingrese el usuario que ha realizado la eliminacion de la maquina",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "jeferson_rodriguez"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdMaquinas": {
+                                        "type": "string"
+                                    },
+                                    "usua_modi": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdMaquinas": "8",
+                                    "usua_modi": "jeferson_rodriguez"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Se ha eliminado."
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/list_moti": {
+            "get": {
+                "tags": [
+                    "Gestion Motivo"
+                ],
+                "summary": "Listar motivo",
+                "operationId": "App\\Http\\Controllers\\MotivoController::list_moti",
+                "responses": {
+                    "200": {
+                        "description": "Listar motivo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/regi_moti": {
+            "post": {
+                "tags": [
+                    "Gestion Motivo"
+                ],
+                "summary": "Registras nuevos  motivos",
+                "operationId": "App\\Http\\Controllers\\MotivoController::regi_moti",
+                "parameters": [
+                    {
+                        "name": "intIdTipoMoti",
+                        "in": "path",
+                        "description": "Ingrese el tipo de motivo",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "2"
+                    },
+                    {
+                        "name": "varDescripcion",
+                        "in": "path",
+                        "description": "Ingrese la descripcion del motivo",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "RETRASO"
+                    },
+                    {
+                        "name": "intIdEsta",
+                        "in": "path",
+                        "description": "Ingrese el estado",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "3"
+                    },
+                    {
+                        "name": "acti_usua",
+                        "in": "path",
+                        "description": "Ingresar el usuario que va registrar un nuevo motivo",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "andy_ancajima"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdTipoMoti": {
+                                        "type": "string"
+                                    },
+                                    "varDescripcion": {
+                                        "type": "string"
+                                    },
+                                    "intIdEsta": {
+                                        "type": "string"
+                                    },
+                                    "acti_usua": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdTipoMoti": "2",
+                                    "varDescripcion": "RETRASO",
+                                    "intIdEsta": "3",
+                                    "acti_usua": "andy_ancajima"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Registro Satisfactorio."
+                    },
+                    "407": {
+                        "description": "La descripcion ya existe."
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/actu_moti": {
+            "post": {
+                "tags": [
+                    "Gestion Motivo"
+                ],
+                "summary": "Actualizar un motivo",
+                "operationId": "App\\Http\\Controllers\\MotivoController::actu_moti",
+                "parameters": [
+                    {
+                        "name": "intIdMoti",
+                        "in": "path",
+                        "description": "Ingrese el id de motivo que se va actualizar",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "2"
+                    },
+                    {
+                        "name": "intIdTipoMoti",
+                        "in": "path",
+                        "description": "Ingrese el id del tipo motivo",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "2"
+                    },
+                    {
+                        "name": "varDescripcion",
+                        "in": "path",
+                        "description": "Ingrese La descripcion del motivo",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "PRUEBA_FALTA"
+                    },
+                    {
+                        "name": "intIdEsta",
+                        "in": "path",
+                        "description": "Ingrese el id estado",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "3"
+                    },
+                    {
+                        "name": "usua_modi",
+                        "in": "path",
+                        "description": "Ingrese el nombre del usuario quien va modificar un motivo",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "jose_castillo"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdTipoMoti": {
+                                        "type": "string"
+                                    },
+                                    "varDescripcion": {
+                                        "type": "string"
+                                    },
+                                    "intIdEsta": {
+                                        "type": "string"
+                                    },
+                                    "usua_modi": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdMoti": "2",
+                                    "intIdTipoMoti": "2",
+                                    "varDescripcion": "PRUEBA_FALTA",
+                                    "intIdEsta": "3",
+                                    "usua_modi": "jose_castillo"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Actualizacion Satisfactoria"
+                    },
+                    "407": {
+                        "description": "La Descripcion ya existe."
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/list_tipo_moti_act": {
+            "get": {
+                "tags": [
+                    "Gestion Motivo"
+                ],
+                "summary": "Listar Tipo motivos Activos",
+                "operationId": "App\\Http\\Controllers\\MotivoController::list_tipo_moti_act",
+                "responses": {
+                    "200": {
+                        "description": "Listar Tipo motivos Activos"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/elim_mot": {
+            "post": {
+                "tags": [
+                    "Gestion Motivo"
+                ],
+                "summary": "obtiene datos del usuario a través del dni",
+                "operationId": "App\\Http\\Controllers\\MotivoController::elim_mot",
+                "parameters": [
+                    {
+                        "name": "intIdMoti",
+                        "in": "path",
+                        "description": "ingresar el id del motivo",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "2"
+                    },
+                    {
+                        "name": "usua_modi",
+                        "in": "path",
+                        "description": "ingresar el usuario que ha modificado un motivo",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "omar_chacon"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdMoti": {
+                                        "type": "string"
+                                    },
+                                    "usua_modi": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdMoti": "2",
+                                    "usua_modi": "omar_chacon"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Se ha eliminado."
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/list_peri_valo": {
+            "get": {
+                "tags": [
+                    "Gestion Valorización"
+                ],
+                "summary": "listas los periodo valorizacion",
+                "operationId": "App\\Http\\Controllers\\PeriodovalorizacionController::list_peri_valo",
+                "responses": {
+                    "200": {
+                        "description": "Lista todo los periodo valorizacion."
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/list_peri_valo_abie": {
+            "get": {
+                "tags": [
+                    "Gestion Valorización"
+                ],
+                "summary": "listas los periodo valorizacion solamente ESTADO ABIERTO",
+                "operationId": "App\\Http\\Controllers\\PeriodovalorizacionController::list_peri_valo_abie",
+                "responses": {
+                    "200": {
+                        "description": "Lista todo los periodo valorizacion solamente ESTADO ABIERTO."
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/list_peri_valo_cerr": {
+            "get": {
+                "tags": [
+                    "Gestion Valorización"
+                ],
+                "summary": "listas los periodo valorizacion solamente ESTADO CERRADO",
+                "operationId": "App\\Http\\Controllers\\PeriodovalorizacionController::list_peri_valo_cerr",
+                "responses": {
+                    "200": {
+                        "description": "Lista todo los periodo valorizacion solamente ESTADO CERRADO."
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/regi_peri_valo": {
+            "post": {
+                "tags": [
+                    "Gestion Valorización"
+                ],
+                "summary": "permite registrar un nuevo periodo de valorizacion",
+                "operationId": "App\\Http\\Controllers\\PeriodovalorizacionController::regi_peri_valo",
+                "parameters": [
+                    {
+                        "name": "varCodiPeriValo",
+                        "in": "path",
+                        "description": "Ingresamos el nuevo codigo de periodo de valorizacion",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "KIRLJSK"
+                    },
+                    {
+                        "name": "varDescPeriValo",
+                        "in": "path",
+                        "description": "La descripcion del periodo de valorizacion que se va registrar",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "KIRLPRUEBA"
+                    },
+                    {
+                        "name": "dateFechaInic",
+                        "in": "path",
+                        "description": "Ingresamos la fecha de inicio",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "2019-10-10"
+                    },
+                    {
+                        "name": "dateFechaFina",
+                        "in": "path",
+                        "description": "Ingremos la fecha final",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "2019-11-20"
+                    },
+                    {
+                        "name": "acti_usua",
+                        "in": "path",
+                        "description": "Ingresamos el usuario que ha registrado",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "kunk_kuje"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "varCodiPeriValo": {
+                                        "type": "string"
+                                    },
+                                    "varDescPeriValo": {
+                                        "type": "string"
+                                    },
+                                    "dateFechaInic": {
+                                        "type": "date"
+                                    },
+                                    "dateFechaFina": {
+                                        "type": "date"
+                                    },
+                                    "acti_usua": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "varCodiPeriValo": "KIRLJSK",
+                                    "varDescPeriValo": "KIRLPRUEBA",
+                                    "dateFechaInic": "2019-10-10",
+                                    "dateFechaFina": "2019-11-20",
+                                    "intIdEsta": "13",
+                                    "acti_usua": "usuario"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Registro Satisfactorio"
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    },
+                    "408": {
+                        "description": "Codigo de periodo valorizacion ya se encuentra registrado."
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/vali_peri_valo": {
+            "post": {
+                "tags": [
+                    "Gestion Valorización"
+                ],
+                "summary": "Obtener los datos de idPeriodovalorizacion que se ha seleccionado",
+                "operationId": "App\\Http\\Controllers\\PeriodovalorizacionController::vali_peri_valo",
+                "parameters": [
+                    {
+                        "name": "intIdPeriValo",
+                        "in": "path",
+                        "description": "para poder obtener la informacion necesitamos Id Periodo valorizacion",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdPeriValo": {
+                                        "type": "number"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdPeriValo": "120"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Sin Mensaje"
+                    },
+                    "407": {
+                        "description": "El idPeriodo valorizacion ingresado no se encuentra registrado."
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/actu_peri_valo": {
+            "post": {
+                "tags": [
+                    "Gestion Valorización"
+                ],
+                "summary": "permite Actualizar un periodo de valorizacion",
+                "operationId": "App\\Http\\Controllers\\PeriodovalorizacionController::actu_peri_valo",
+                "parameters": [
+                    {
+                        "name": "intIdPeriValo",
+                        "in": "path",
+                        "description": "Id de periodo de valorizacion que se va actualizar",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "27"
+                    },
+                    {
+                        "name": "varCodiPeriValo",
+                        "in": "path",
+                        "description": "Ingresamos del codigo periodo de valorizacion",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "KIR_MODI"
+                    },
+                    {
+                        "name": "varDescPeriValo",
+                        "in": "path",
+                        "description": "La descripcion del periodo de valorizacion",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "DESC_MODI"
+                    },
+                    {
+                        "name": "dateFechaInic",
+                        "in": "path",
+                        "description": "Ingresamos la fecha de inicio",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "2019-10-20"
+                    },
+                    {
+                        "name": "dateFechaFina",
+                        "in": "path",
+                        "description": "Ingremos la fecha final",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "2019-12-20"
+                    },
+                    {
+                        "name": "usua_modi",
+                        "in": "path",
+                        "description": "Ingresamos el usuario que ha registrado",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "kunk_kuje"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdPeriValo": {
+                                        "type": "string"
+                                    },
+                                    "varCodiPeriValo": {
+                                        "type": "string"
+                                    },
+                                    "varDescPeriValo": {
+                                        "type": "string"
+                                    },
+                                    "dateFechaInic": {
+                                        "type": "date"
+                                    },
+                                    "dateFechaFina": {
+                                        "type": "date"
+                                    },
+                                    "usua_modi": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdPeriValo": "27",
+                                    "varCodiPeriValo": "KIR_MODI",
+                                    "varDescPeriValo": "DESC_MODI",
+                                    "dateFechaInic": "2019-10-20",
+                                    "dateFechaFina": "2019-12-20",
+                                    "intIdEsta": "",
+                                    "usua_modi": "usuario"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Registro Satisfactorio"
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    },
+                    "408": {
+                        "description": "Codigo de periodo valorizacion ya se encuentra registrado."
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/elim_pedi_valor": {
+            "post": {
+                "tags": [
+                    "Gestion Valorización"
+                ],
+                "summary": "Eliminar el periodo valorizacion",
+                "operationId": "App\\Http\\Controllers\\PeriodovalorizacionController::elim_pedi_valor",
+                "parameters": [
+                    {
+                        "name": "intIdPeriValo",
+                        "in": "path",
+                        "description": "ingrese el id del periodo valorizacion",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdPeriValo": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdPeriValo": "1000"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Se ha eliminado"
+                    },
+                    "407": {
+                        "description": "El Documento de identidad ingresado no se encuentra registrado."
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/actu_pedi_valor_esta": {
+            "post": {
+                "tags": [
+                    "Gestion Valorización"
+                ],
+                "summary": "Obtener los datos de idPeriodovalorizacion que se ha seleccionado",
+                "operationId": "App\\Http\\Controllers\\PeriodovalorizacionController::actu_pedi_valor_esta",
+                "parameters": [
+                    {
+                        "name": "intIdPeriValo",
+                        "in": "path",
+                        "description": "para poder obtener la informacion necesitamos Id Periodo valorizacion",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "usua_modi",
+                        "in": "path",
+                        "description": "usuario que ha a cambiar el estado de la valorizacion",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "asuario_autorizado"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdPeriValo": {
+                                        "type": "number"
+                                    },
+                                    "asuario_autorizado": {
+                                        "type": "number"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdPeriValo": "120",
+                                    "usua_modi": "asuario_autorizado"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Se ha Actualizado. "
+                    },
+                    "407": {
+                        "description": "El idPeriodo valorizacion ingresado no se encuentra registrado."
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/regis_tipo_estru": {
+            "post": {
+                "tags": [
+                    "Gestion Tipo Estructurado"
+                ],
+                "summary": "permite registro tipo de estructurado",
+                "operationId": "App\\Http\\Controllers\\TipoEstructuradoController::regis_tipo_estru",
+                "parameters": [
+                    {
+                        "name": "varDescTipoEstru",
+                        "in": "path",
+                        "description": "Descripcion de tipo de estructurado",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "OBRA_PRUEBA"
+                    },
+                    {
+                        "name": "acti_usua",
+                        "in": "path",
+                        "description": "El usuario quien esta registrando el nuevo tipo estructurado",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "mendoza_luis"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "varNumeDni": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "varDescTipoEstru": "OBRA_PRUEBA",
+                                    "varEstaTipoEstru": "ACT",
+                                    "acti_usua": "mendoza_luis"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Guardado con exito."
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    },
+                    "408": {
+                        "description": "La Descripcion ya existe."
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/vali_tipo_estru": {
+            "post": {
+                "tags": [
+                    "Gestion Tipo Estructurado"
+                ],
+                "summary": "obtiene el tipo estructurado que se ha seleccionado",
+                "operationId": "App\\Http\\Controllers\\TipoEstructuradoController::vali_tipo_estru",
+                "parameters": [
+                    {
+                        "name": "varDescTipoEstru",
+                        "in": "path",
+                        "description": "Obtener la descripcion",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "varDescTipoEstru": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "varDescTipoEstru": "OBRA_PRUEBA"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Sin Mensaje"
+                    },
+                    "407": {
+                        "description": "La descripcion del tipo estructurado  no se encuentra registrado."
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/actu_tipo_estru": {
+            "post": {
+                "tags": [
+                    "Gestion Tipo Estructurado"
+                ],
+                "summary": "Permite Actualizacion tipo de estructurado",
+                "operationId": "App\\Http\\Controllers\\TipoEstructuradoController::actu_tipo_estru",
+                "parameters": [
+                    {
+                        "name": "intIdTipoEstructurado",
+                        "in": "path",
+                        "description": "selecciona el idTipoEstructura que se va actualizar",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "9"
+                    },
+                    {
+                        "name": "varDescTipoEstru",
+                        "in": "path",
+                        "description": "Ingresa la descripcion del tipo estructurado",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "OBRA_PRUEBA_PRO"
+                    },
+                    {
+                        "name": "varEstaTipoEstru",
+                        "in": "path",
+                        "description": "Cambia el estado activo o inactivo",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "INA"
+                    },
+                    {
+                        "name": "usua_modi",
+                        "in": "path",
+                        "description": "Cambia el estado activo o inactivo",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "montañez"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdTipoEstructurado": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdTipoEstructurado": "9",
+                                    "varDescTipoEstru": "OBRA_PRUEBA_PRO",
+                                    "varEstaTipoEstru": "INA",
+                                    "usua_modi": "montañez"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Actualizacion Satisfactoria"
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    },
+                    "408": {
+                        "description": "La Descripcion ya existe."
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/elim_tipo_estru": {
+            "post": {
+                "tags": [
+                    "Gestion Tipo Estructurado"
+                ],
+                "summary": "inactiva un tipo estructurado que se ha seleccionado",
+                "operationId": "App\\Http\\Controllers\\TipoEstructuradoController::elim_tipo_estru",
+                "parameters": [
+                    {
+                        "name": "intIdTipoEstructurado",
+                        "in": "path",
+                        "description": "El idTipoEstructurado que se desea inactivar",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "usua_modi",
+                        "in": "path",
+                        "description": "codigo de usuario que se usa para ingresar al sistema",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdTipoEstructurado": {
+                                        "type": "string"
+                                    },
+                                    "usua_modi": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdTipoEstructurado": "1000",
+                                    "usua_modi": "usuario"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "El tipo estructurado ha sido eliminado."
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/list_tipo_estru": {
+            "get": {
+                "tags": [
+                    "Gestion Tipo Estructurado"
+                ],
+                "summary": "lista todos los tipo esctructurado",
+                "operationId": "App\\Http\\Controllers\\TipoEstructuradoController::list_tipo_estru",
+                "responses": {
+                    "200": {
+                        "description": "Lista todos los tipo esctructurado."
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/busc_boton_tipo_estru": {
+            "post": {
+                "tags": [
+                    "Gestion Tipo Estructurado"
+                ],
+                "summary": "buscar el tipo Estructurado para obtener la zona  idZona",
+                "operationId": "App\\Http\\Controllers\\TipoEstructuradoController::busc_boton_tipo_estru",
+                "parameters": [
+                    {
+                        "name": "varDescTipoEstru",
+                        "in": "path",
+                        "description": "Obtener la descripcion",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "varDescTipoEstru": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "varDescTipoEstru": "CANAL"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Sin Mensaje"
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/buscar_tipo_Estructura": {
+            "post": {
+                "tags": [
+                    "Gestion Tipo Estructurado"
+                ],
+                "summary": "buscar el tipo Estructura , el usuario ingresa el codigo de tipo estructura se le mandara el idTipoEstructurado",
+                "operationId": "App\\Http\\Controllers\\TipoEstructuradoController::buscar_tipo_Estructura",
+                "parameters": [
+                    {
+                        "name": "varCodiEstru",
+                        "in": "path",
+                        "description": "Obtener la descripcion",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "varCodiEstru": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "varCodiEstru": "ANTENA"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Sin Mensaje"
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo.Error"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/validar_TipoEstructurado": {
+            "post": {
+                "tags": [
+                    "Gestion Tipo Estructurado"
+                ],
+                "summary": "function que retorna intIdTipoEstructurado  si existe .En caso contrario devulve un mensaje de error (Para el partlist)",
+                "operationId": "App\\Http\\Controllers\\TipoEstructuradoController::validar_TipoEstructurado",
+                "parameters": [
+                    {
+                        "name": "varDescTipoEstru",
+                        "in": "path",
+                        "description": "Obtener la descripcion",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "varDescTipoEstru": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "varDescTipoEstru": "CANAL"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Sin Mensaje"
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/validar_TipoEstructura": {
+            "post": {
+                "tags": [
+                    "Gestion Tipo Estructurado"
+                ],
+                "summary": "valida si el tipo estructura",
+                "operationId": "App\\Http\\Controllers\\TipoEstructuradoController::validar_TipoEstructura",
+                "parameters": [
+                    {
+                        "name": "varCodiEstru",
+                        "in": "path",
+                        "description": "ingresar el codigo del Tipo Estructura ",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "varCodiEstru": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "varCodiEstru": "MONOPOLO"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Sin Mensaje"
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/regi_tipo_etap": {
+            "post": {
+                "tags": [
+                    "Gestion Tipo Etapa"
+                ],
+                "summary": "permite registrar el tipo etapa",
+                "operationId": "App\\Http\\Controllers\\TipoEtapasController::regi_tipo_etap",
+                "parameters": [
+                    {
+                        "name": "intIdAgru",
+                        "in": "path",
+                        "description": "Selecciona un IdAgrupador",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "6"
+                    },
+                    {
+                        "name": "varCodiTipoEtap",
+                        "in": "path",
+                        "description": "Ingresamos el codigo del tipo etapa que se va registrar",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "EMPA_PRUEBA"
+                    },
+                    {
+                        "name": "varDescTipoEtap",
+                        "in": "path",
+                        "description": "Descripcion del nuevo tipo de etapa",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "EMPAQUE_PRUEBA"
+                    },
+                    {
+                        "name": "varEstaTipoEtap",
+                        "in": "path",
+                        "description": "estado",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "ACT"
+                    },
+                    {
+                        "name": "acti_usua",
+                        "in": "path",
+                        "description": "Usuario que va registrar el nuevo tipo etapa",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "montañez_andy"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdTipoEtap": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdAgru": "6",
+                                    "varCodiTipoEtap": "EMPA_PRUEBA",
+                                    "varDescTipoEtap": "EMPAQUE_PRUEBA",
+                                    "varEstaTipoEtap": "ACTIVO",
+                                    "acti_usua": "montañez_andy"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Registro Satisfactorio"
+                    },
+                    "407": {
+                        "description": "Código de Tipo Etapa Ya existe."
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/list_tipo_etap": {
+            "get": {
+                "tags": [
+                    "Gestion Tipo Etapa"
+                ],
+                "summary": "Listar todos las tipo etapas",
+                "operationId": "App\\Http\\Controllers\\TipoEtapasController::list_tipo_etap",
+                "responses": {
+                    "200": {
+                        "description": "Listar Tipo Etapas."
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/vali_tipo_etap": {
+            "post": {
+                "tags": [
+                    "Gestion Tipo Etapa"
+                ],
+                "summary": "obtiene datos del tipo etapa que se ha seleccionado",
+                "operationId": "App\\Http\\Controllers\\TipoEtapasController::vali_tipo_etap",
+                "parameters": [
+                    {
+                        "name": "intIdTipoEtap",
+                        "in": "path",
+                        "description": "El idTipoEtap que se va obtener su informacion",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdTipoEtap": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdTipoEtap": "5"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Sin Mensaje"
+                    },
+                    "407": {
+                        "description": "El idTipoEtapa no se encuentra registrado."
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/actu_tipo_etap": {
+            "post": {
+                "tags": [
+                    "Gestion Tipo Etapa"
+                ],
+                "summary": "Permite actualizar el tipo etapa.",
+                "operationId": "App\\Http\\Controllers\\TipoEtapasController::actu_tipo_etap",
+                "parameters": [
+                    {
+                        "name": "intIdTipoEtap",
+                        "in": "path",
+                        "description": "El idTipoEtap que se modificara",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "120"
+                    },
+                    {
+                        "name": "intIdAgru",
+                        "in": "path",
+                        "description": "Selecciona un IdAgrupador",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "120"
+                    },
+                    {
+                        "name": "varCodiTipoEtap",
+                        "in": "path",
+                        "description": "Ingresamos el codigo del tipo etapa",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "EMPA_PRUEBA_MODI"
+                    },
+                    {
+                        "name": "varDescTipoEtap",
+                        "in": "path",
+                        "description": "Descripcion del nuevo tipo de etapa",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "EMPAQUE_PRUEBA_MODI"
+                    },
+                    {
+                        "name": "varEstaTipoEtap",
+                        "in": "path",
+                        "description": "Estado de tipo etapa",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "ACT"
+                    },
+                    {
+                        "name": "usua_modi",
+                        "in": "path",
+                        "description": "Usuario que va modificar el tipo etapa",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "montañez_andy"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdTipoEtap": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdTipoEtap": "120",
+                                    "intIdAgru": "120",
+                                    "varCodiTipoEtap": "EMPA_PRUEBA_MODI",
+                                    "varDescTipoEtap": "EMPAQUE_PRUEBA_MODI",
+                                    "varEstaTipoEtap": "ACT",
+                                    "usua_modi": "usuario"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Actualizacion Satisfactorio"
+                    },
+                    "407": {
+                        "description": "Código de Tipo Etapa Ya existe."
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/list_tipo_etapa_segun_agru": {
+            "post": {
+                "tags": [
+                    "Gestion Tipo Etapa"
+                ],
+                "summary": "obtener el agrupador mediante el id de tipo etapa",
+                "operationId": "App\\Http\\Controllers\\TipoEtapasController::list_tipo_etapa_segun_agru",
+                "parameters": [
+                    {
+                        "name": "intIdTipoEtap",
+                        "in": "path",
+                        "description": "Ingrese el id Tipo etapa",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdTipoEtap": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdTipoEtap": "1"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Muestra el Agrupador"
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/list_tran": {
+            "get": {
+                "tags": [
+                    "Gestion Transportista"
+                ],
+                "summary": "Listar Transportistas",
+                "operationId": "App\\Http\\Controllers\\TransportistaController::list_tran",
+                "responses": {
+                    "200": {
+                        "description": "Listar Transportistas."
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/regi_tran": {
+            "post": {
+                "tags": [
+                    "Gestion Transportista"
+                ],
+                "summary": "Registrar un nuevo transportista",
+                "operationId": "App\\Http\\Controllers\\TransportistaController::regi_tran",
+                "parameters": [
+                    {
+                        "name": "varNumeIden",
+                        "in": "path",
+                        "description": "Ingrese el numero de identidad",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "2015487212"
+                    },
+                    {
+                        "name": "varRazonSoci",
+                        "in": "path",
+                        "description": "Ingrese el nombre de la empresa",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "COLORADOR S.A.C"
+                    },
+                    {
+                        "name": "varDirec",
+                        "in": "path",
+                        "description": "Ingrese la direccion de la empresa que se ha registrar",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Av. Las Flores Mz D LT 75"
+                    },
+                    {
+                        "name": "intIdEsta",
+                        "in": "path",
+                        "description": "El estado del transportista",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "3"
+                    },
+                    {
+                        "name": "acti_usua",
+                        "in": "path",
+                        "description": "Ingresar el usuario quien va registrar al transportista",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "jose_castillo"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "varNumeIden": {
+                                        "type": "string"
+                                    },
+                                    "varRazonSoci": {
+                                        "type": "string"
+                                    },
+                                    "varDirec": {
+                                        "type": "string"
+                                    },
+                                    "intIdEsta": {
+                                        "type": "string"
+                                    },
+                                    "acti_usua": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "varNumeIden": "2015487212",
+                                    "varRazonSoci": "COLORADOR S.A.C",
+                                    "varDirec": "Av. Las Flores Mz D LT 75",
+                                    "intIdEsta": "3",
+                                    "acti_usua": "jose_castillo"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Registro Satisfactorio."
+                    },
+                    "407": {
+                        "description": "El numero de Razon Social ya existe."
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/vali_tran": {
+            "post": {
+                "tags": [
+                    "Gestion Transportista"
+                ],
+                "summary": "buscamos la informacion del transportista mediante el ID",
+                "operationId": "App\\Http\\Controllers\\TransportistaController::vali_tran",
+                "parameters": [
+                    {
+                        "name": "intIdTrans",
+                        "in": "path",
+                        "description": "Ingresar el id del transportista",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "2"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdTrans": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdTrans": "2"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Sin Mensaje"
+                    },
+                    "407": {
+                        "description": "El id del transportista ingresado no se encuentra registrado."
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/actu_tran": {
+            "post": {
+                "tags": [
+                    "Gestion Transportista"
+                ],
+                "summary": "Permite Actualizar los datos de un transportista",
+                "operationId": "App\\Http\\Controllers\\TransportistaController::actu_tran",
+                "parameters": [
+                    {
+                        "name": "intIdTrans",
+                        "in": "path",
+                        "description": "Ingrese el id del transportista",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "2"
+                    },
+                    {
+                        "name": "varRazonSoci",
+                        "in": "path",
+                        "description": "Ingresar el nombre completo del transportista",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "EVENT_SCOLE"
+                    },
+                    {
+                        "name": "varDirec",
+                        "in": "path",
+                        "description": "Ingrese la direccion del transportista",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Av. Los Olivos Mz Z Lt 32 Palmeras"
+                    },
+                    {
+                        "name": "intIdEsta",
+                        "in": "path",
+                        "description": "Ingresar el estado de chofer(3='ACTIVO' o 14='INACTIVO')",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14"
+                    },
+                    {
+                        "name": "usua_modi",
+                        "in": "path",
+                        "description": "EL nombre del usuario que ha realizado la modificacion del chofer",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "jose_castillo"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdTrans": {
+                                        "type": "integer"
+                                    },
+                                    "varRazonSoci": {
+                                        "type": "string"
+                                    },
+                                    "varDirec": {
+                                        "type": "string"
+                                    },
+                                    "intIdEsta": {
+                                        "type": "integer"
+                                    },
+                                    "usua_modi": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdTrans": "2",
+                                    "varRazonSoci": "EVENT_SCOLE",
+                                    "varDirec": "Av. Los Olivos Mz Z Lt 32 Palmeras",
+                                    "intIdEsta": "14",
+                                    "usua_modi": "andy_ancajima"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Actualizacion Satisfactoria."
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/elim_tran": {
+            "post": {
+                "tags": [
+                    "Gestion Transportista"
+                ],
+                "summary": "Cambiar el estado de un transportista",
+                "operationId": "App\\Http\\Controllers\\TransportistaController::elim_tran",
+                "parameters": [
+                    {
+                        "name": "intIdTrans",
+                        "in": "path",
+                        "description": "Ingresar el id del transportista",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "2"
+                    },
+                    {
+                        "name": "usua_modi",
+                        "in": "path",
+                        "description": "Ingresa el usuario que ha modificado a un transportista",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "andy_ancajima"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdTrans": {
+                                        "type": "string"
+                                    },
+                                    "usua_modi": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdTrans": "2",
+                                    "usua_modi": "andy_ancajima"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Se ha eliminado."
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/list_unid_nego_acti": {
+            "get": {
+                "tags": [
+                    "Gestion Unidad Negocio"
+                ],
+                "summary": "Listar la unidad de negocio que solo sea ACTIVO",
+                "operationId": "App\\Http\\Controllers\\UnidadNegocioController::list_unid_nego_acti",
+                "responses": {
+                    "200": {
+                        "description": "Listar la unidad de negocio que solo sea ACTIVO"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/list_unid_nego_todo": {
+            "get": {
+                "tags": [
+                    "Gestion Unidad Negocio"
+                ],
+                "summary": "Listar todo la unidad de negocio",
+                "operationId": "App\\Http\\Controllers\\UnidadNegocioController::list_unid_nego_todo",
+                "responses": {
+                    "200": {
+                        "description": "Listar todo la unidad de negocio"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/regi_unid_nego": {
+            "post": {
+                "tags": [
+                    "Gestion Unidad Negocio"
+                ],
+                "summary": "Registrar un nuevo unidad de negocio",
+                "operationId": "App\\Http\\Controllers\\UnidadNegocioController::regi_unid_nego",
+                "parameters": [
+                    {
+                        "name": "varDescripcion",
+                        "in": "path",
+                        "description": "Ingrese la descripcion",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "HAKUNA"
+                    },
+                    {
+                        "name": "intIdEsta",
+                        "in": "path",
+                        "description": "Ingrese el estado",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "3"
+                    },
+                    {
+                        "name": "acti_usua",
+                        "in": "path",
+                        "description": "Ingrese el usuario que ha realizado el registro",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "acti_usua"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "varDescripcion": {
+                                        "type": "string"
+                                    },
+                                    "intIdEsta": {
+                                        "type": "string"
+                                    },
+                                    "acti_usua": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "varDescripcion": "HAKUNA",
+                                    "intIdEsta": "3",
+                                    "acti_usua": "edimir_timana"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Registro Satisfactorio."
+                    },
+                    "201": {
+                        "description": "La descripcion ya existe."
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/actu_unid_nego": {
+            "post": {
+                "tags": [
+                    "Gestion Unidad Negocio"
+                ],
+                "summary": "Actualiza una unidad de negocio",
+                "operationId": "App\\Http\\Controllers\\UnidadNegocioController::actu_unid_nego",
+                "parameters": [
+                    {
+                        "name": "intIdUniNego",
+                        "in": "path",
+                        "description": "Ingrese el id de la unidad de negocio",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "2"
+                    },
+                    {
+                        "name": "varDescripcion",
+                        "in": "path",
+                        "description": "Ingrese la descripcion de la unidad de negocio",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "PRUEBA_NEGOCIO"
+                    },
+                    {
+                        "name": "intIdEsta",
+                        "in": "path",
+                        "description": "Ingrese el id estado",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14"
+                    },
+                    {
+                        "name": "usua_modi",
+                        "in": "path",
+                        "description": "se va ingresar el usuario quien va realizado la modificacion",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "edimir_timana"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdUniNego": {
+                                        "type": "string"
+                                    },
+                                    "varDescripcion": {
+                                        "type": "string"
+                                    },
+                                    "intIdEsta": {
+                                        "type": "string"
+                                    },
+                                    "usua_modi": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdUniNego": "2",
+                                    "varDescripcion": "PRUEBA_NEGOCIO",
+                                    "intIdEsta": "14",
+                                    "usua_modi": "edimir_timana"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Actualizacion Satisfactorio."
+                    },
+                    "201": {
+                        "description": "La descripcion ya exite."
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/elim_unid_nego": {
+            "post": {
+                "tags": [
+                    "Gestion Unidad Negocio"
+                ],
+                "summary": "Para eliminar o cambiar el estado de la unidad de negocio de ACT a INACT",
+                "operationId": "App\\Http\\Controllers\\UnidadNegocioController::elim_unid_nego",
+                "parameters": [
+                    {
+                        "name": "intIdUniNego",
+                        "in": "path",
+                        "description": "Ingresar el id unidad de negocio",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "3"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdUniNego": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdUniNego": "2"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Se ha eliminado."
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionProyectos/public/index.php/combox_list_unid_nego_proy": {
+            "post": {
+                "tags": [
+                    "Gestion Unidad Negocio"
+                ],
+                "summary": "Listar las OT dependiendo a id de la unidad de negocio",
+                "operationId": "App\\Http\\Controllers\\UnidadNegocioController::combox_list_unid_nego_proy",
+                "parameters": [
+                    {
+                        "name": "intIdUniNego",
+                        "in": "path",
+                        "description": "Ingresar el id unidad de negocio",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intIdUniNego": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdUniNego": "1"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Muestra las OT dependiendo a la unidad de negocio"
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        }
+    }
+}
